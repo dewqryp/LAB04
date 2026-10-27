@@ -25,7 +25,8 @@
         public static string IntroduceYourself(string name, int age)
         {
             // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            string formattedName = char.ToUpper(name[0]) + name.Substring(1).ToLower();
+            return $"Hello! My name is {formattedName} and i am {age} years old.";
         }
 
         // =========================
@@ -106,8 +107,7 @@
         /// </example>
         public static string Average(double a, double b, double c)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            return $"Среднее арифметическое чисел {a}, {b} и {c} = {((a + b + c) / 3):F2}";
         }
 
         /// <summary>
@@ -205,8 +205,14 @@
         /// </example>
         public static string GetTimeOfDay(int hour)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            return hour switch
+            {
+                >= 0 and < 6 => $"{hour} час - Ночь",
+                >= 6 and < 12 => $"{hour} час - Утро",
+                >= 12 and < 18 => $"{hour} час - День",
+                >= 18 and < 24 => $"{hour} час - Вечер",
+                _ => $"{hour} час - Не существует"
+            };
         }
 
         /// <summary>
@@ -304,8 +310,11 @@
         /// </example>
         public static string AverageArray(int[] numbers)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            if (numbers.Length == 0)
+            {
+                return "Среднее значение массива = 0.00";
+            }
+            return $"Среднее значение массива = {numbers.Average():F2}";
         }
 
         /// <summary>
@@ -403,8 +412,11 @@
         /// </example>
         public static string SplitArray(int[] array)
         {
-            // Реализовать метод для решения задачи
-            throw new NotImplementedException();
+            if(array.Length == 0)
+            {
+                return "Массив не может быть пустым";
+            }
+            return $"Положительные: {string.Join(" ", array.Where(x => x > 0))}. Отрицательные: {string.Join(" ", array.Where(x => x < 0))}";
         }
 
         /// <summary>
